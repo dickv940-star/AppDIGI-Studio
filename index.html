@@ -570,10 +570,12 @@ align-items:center;
 }
 
 .product img{
-width:80px;
-height:80px;
+width:90px;
+height:90px;
 border-radius:20px;
-
+object-fit:contain;
+background:#090d18;
+padding:15px;
 }
 
 .settings div{
@@ -737,63 +739,66 @@ onclick="scan()">
 
 </div>
 
-<div class="card product">
+<div class="card product" id="productResult">
 
-<img src="assets/logo.png">
+
+<img 
+id="productImage"
+src="logo-scan.png">
+
 
 <div>
 
 
-<b>
-Produk Aman
+<b id="productName">
+
+Belum dianalisa
+
 </b>
 
 
-<p>
-✓ Foto asli</p>
+<p id="status1">
 
-<p>
-✓ Deskripsi cocok
-</p>
+🔍 Tempel link produk
 
-<p>
-✓ Tidak diubah AI
 </p>
 
 
+<p id="status2">
+
+AI akan membaca produk
+
+</p>
+
+<p id="status3">
+
+Foto asli tidak diubah
+
+</p>
+
 </div>
 
-
 </div>
-
 
 <div class="card settings">
 
-
-
 <div onclick="openPanel('voice')">
-
 
 <span>
 🎙 Voice AI
 </span>
 
+<b>
+TTS / Voice Note →
+</b>
+
+</div>
 
 <b>
 TTS / Voice Note →
 </b>
 
-
 </div>
-
-
-<b>
-TTS / Voice Note →
-</b>
-
-
-</div>
-
 
 <div onclick="openPanel('style')">
 
@@ -840,7 +845,6 @@ Produk
 
 
 </div>
-
 
 
 <div class="card">
@@ -1494,12 +1498,22 @@ document
 
 function scan(){
 
-alert(
-"Produk berhasil dianalisa\n\nFoto asli\nDeskripsi sesuai\nAman"
-);
+document.getElementById("productImage").src =
+"logo-scan.png";
+
+document.getElementById("productName").innerHTML =
+"Produk Affiliate Ditemukan";
+
+document.getElementById("status1").innerHTML =
+"✓ Foto produk asli";
+
+document.getElementById("status2").innerHTML =
+"✓ Deskripsi sesuai link";
+
+document.getElementById("status3").innerHTML =
+"✓ Product Lock AI aktif";
 
 }
-
 
 function generate(){
 
