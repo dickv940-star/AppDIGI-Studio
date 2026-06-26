@@ -289,7 +289,9 @@ Link → Video Affiliate AI
 </h3>
 
 
-<input placeholder="Tempel link produk affiliate">
+<input 
+id="productLink"
+placeholder="Tempel link produk affiliate">
 
 <button class="mainBtn" onclick="scan()">
 
@@ -304,11 +306,13 @@ Link → Video Affiliate AI
 <div class="card product">
 
 
-<img id="productImage"
-src="logo-scan.png">
+<img 
+id="productImage"
+src="assets/logo-scan.png">
 
 
 <div>
+
 
 <b id="productName">
 
@@ -334,6 +338,13 @@ Belum dianalisa
 <p id="status3">
 
 ✓ Product Lock AI
+
+</p>
+
+
+<p id="checkLink">
+
+🔗 Belum cek tujuan link
 
 </p>
 
@@ -957,29 +968,55 @@ alert(
 
 function scan(){
 
-document
-.getElementById("productImage")
-.src="assets/logo.png";
 
-document
-.getElementById("productName")
-.innerHTML=
-"Produk Berhasil Dianalisa";
+let link =
+document.getElementById("productLink").value;
 
-document
-.getElementById("status1")
-.innerHTML=
-"✓ Foto produk asli";
 
-document
-.getElementById("status2")
-.innerHTML=
-"✓ Deskripsi sesuai";
 
-document
-.getElementById("status3")
-.innerHTML=
-"✓ Bentuk tidak diubah AI";
+if(link==""){
+
+alert("Masukkan link produk dulu");
+
+return;
+
+}
+
+
+
+// simulasi analisa
+
+document.getElementById("productName")
+.innerHTML =
+"Produk Affiliate Ditemukan";
+
+
+document.getElementById("status1")
+.innerHTML =
+"✓ Link berhasil dibaca";
+
+
+document.getElementById("status2")
+.innerHTML =
+"✓ Foto produk aktif";
+
+
+document.getElementById("status3")
+.innerHTML =
+"✓ Deskripsi cocok";
+
+
+document.getElementById("checkLink")
+.innerHTML =
+"✓ Link menuju halaman produk";
+
+
+
+// ganti icon scan menjadi gambar produk sementara
+
+document.getElementById("productImage")
+.src =
+"assets/logo.png";
 
 }
 
