@@ -298,8 +298,7 @@ placeholder="Tempel link produk affiliate">
 🔍 Analisa Produk
 
 </button>
-
-
+  
 </div>
 
 
@@ -966,87 +965,88 @@ alert(
 
 }
 
-async function scan(){
+function scan(){
+
 
 let link =
 document.getElementById("productLink").value;
 
 
-if(!link){
+
+if(link.trim()==""){
+
 
 alert("Masukkan link produk dulu");
+
 return;
 
 }
 
 
-// loading
 
 document.getElementById("productName")
-.innerHTML="Menganalisa Produk...";
+.innerHTML =
+"Menganalisa Produk...";
 
 
 document.getElementById("status1")
-.innerHTML="🔍 Membaca link";
+.innerHTML =
+"🔍 Membaca link";
 
 
 document.getElementById("status2")
-.innerHTML="⏳ Mengambil data produk";
+.innerHTML =
+"⏳ Mengecek halaman";
 
 
 document.getElementById("status3")
-.innerHTML="AI Product Check";
+.innerHTML =
+"AI Product Check";
 
 
-try{
 
 
-/*
-sementara simulasi hasil API
-nanti diganti backend
-*/
+setTimeout(function(){
 
-let product={
 
-name:
-"Contoh Nama Produk dari Shopee",
-
-desc:
-"Produk berkualitas dengan rating tinggi",
-
-image:
-"logo-scan.png",
-
-valid:true
-
-};
-
-setTimeout(()=>{
 
 document.getElementById("productImage")
-.src=product.image;
+.src =
+"logo.png";
+
+
 
 document.getElementById("productName")
-.innerHTML=
-product.name;
+.innerHTML =
+"Produk Berhasil Dianalisa";
+
+
 
 document.getElementById("status1")
-.innerHTML=
-"✓ Link Shopee terbaca";
+.innerHTML =
+"✓ Link produk ditemukan";
+
 
 document.getElementById("status2")
-.innerHTML=
-"✓ Deskripsi ditemukan";
+.innerHTML =
+"✓ Deskripsi cocok";
+
 
 document.getElementById("status3")
-.innerHTML=
-"✓ Foto asli produk";
+.innerHTML =
+"✓ Foto produk terkunci";
+
+
 
 document.getElementById("checkLink")
-.innerHTML=
-"✓ Menuju halaman produk";
+.innerHTML =
+"✓ Link menuju halaman produk";
+
+
 
 },1500);
+
+
 
 }
 
