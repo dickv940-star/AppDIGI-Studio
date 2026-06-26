@@ -52,14 +52,10 @@ padding-bottom:90px;
 
 
 header{
-
 padding:20px;
-
 background:
 linear-gradient(135deg,#6c5ce7,#0984e3);
-
 border-radius:0 0 30px 30px;
-
 position:relative;
 
 }
@@ -110,94 +106,46 @@ color:#cbd5e1;
 
 }
 
-
-
-.darkBtn{
-
-position:absolute;
-right:15px;
-top:15px;
-
-border:0;
-background:#ffffff30;
-
-color:white;
-
-padding:10px;
-
-border-radius:20px;
-
-}
-
 .card{
-
 margin:15px;
-
 padding:18px;
-
 background:#151b2d;
-
 border-radius:24px;
-
 box-shadow:0 10px 30px #0004;
 
 }
 
 input{
-
 width:100%;
-
 padding:15px;
-
 border:0;
-
 border-radius:15px;
-
 background:#090d18;
-
 color:white;
 
 }
-
-
 button{
-
 cursor:pointer;
 
 }
 
 .mainBtn{
-
 width:100%;
-
 margin-top:15px;
-
 height:50px;
-
 border:0;
-
 border-radius:18px;
-
 background:
 linear-gradient(135deg,#8b5cf6,#2563eb);
-
 color:white;
-
 font-weight:bold;
-
 font-size:15px;
 
 }
 
-
-
-
 .product{
-
 display:flex;
-
 gap:15px;
-
 align-items:center;
 
 }
@@ -327,13 +275,355 @@ border-radius:15px;
 
 <header>
 
-<button class="darkBtn"
-onclick="toggleTheme()">
+<div class="brand">
 
-🌙
+<img src="logo.png">
+
+
+<div>
+
+<h1>
+AppDIGI Studio
+</h1>
+
+
+<p>
+AI Affiliate Video
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</header>
+
+<div class="card">
+
+
+<h3>
+🔗 Produk Affiliate
+</h3>
+
+<input placeholder="Tempel link produk">
+
+<button class="mainBtn"
+onclick="scan()">
+
+🔍 Analisa Produk
 
 </button>
 
+</div>
+
+<div class="card product">
+
+<img src="assets/logo.png">
+
+<div>
+
+
+<b>
+Produk Aman
+</b>
+
+
+<p>
+✓ Foto asli</p>
+
+<p>
+✓ Deskripsi cocok
+</p>
+
+<p>
+✓ Tidak diubah AI
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AppDIGI Studio</title>
+
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#6c5ce7">
+
+
+<link rel="icon" href="assets/logo.png">
+
+
+
+<style>
+
+
+*{
+box-sizing:border-box;
+font-family:Segoe UI,Arial;
+}
+
+
+body{
+
+margin:0;
+background:#080b16;
+color:white;
+display:flex;
+justify-content:center;
+
+}
+
+
+.app{
+
+width:390px;
+min-height:100vh;
+background:#0d1220;
+padding-bottom:90px;
+
+}
+
+/* HEADER */
+
+
+header{
+padding:20px;
+background:
+linear-gradient(135deg,#6c5ce7,#0984e3);
+border-radius:0 0 30px 30px;
+position:relative;
+
+}
+
+
+.brand{
+display:flex;
+align-items:center;
+gap:8px;
+  
+}
+.brand div{
+line-height:1.1;
+
+}
+
+.brand h1{
+margin:0;
+font-size:22px;
+
+}
+
+.brand p{
+margin:3px 0 0;
+font-size:13px;
+opacity:.8;
+
+}
+.brand img{
+width:48px;
+height:48px;
+border-radius:14px;
+object-fit:cover;
+
+}
+
+h1{
+
+margin:0;
+font-size:22px;
+
+}
+
+
+p{
+
+color:#cbd5e1;
+
+}
+
+.card{
+margin:15px;
+padding:18px;
+background:#151b2d;
+border-radius:24px;
+box-shadow:0 10px 30px #0004;
+
+}
+
+input{
+width:100%;
+padding:15px;
+border:0;
+border-radius:15px;
+background:#090d18;
+color:white;
+
+}
+button{
+cursor:pointer;
+
+}
+
+.mainBtn{
+width:100%;
+margin-top:15px;
+height:50px;
+border:0;
+border-radius:18px;
+background:
+linear-gradient(135deg,#8b5cf6,#2563eb);
+color:white;
+font-weight:bold;
+font-size:15px;
+
+}
+
+.product{
+display:flex;
+gap:15px;
+align-items:center;
+
+}
+
+.product img{
+width:80px;
+height:80px;
+border-radius:20px;
+
+}
+
+.settings div{
+display:flex;
+justify-content:space-between;
+padding:16px 0;
+border-bottom:1px solid #ffffff15;
+
+}
+
+.settings span{
+color:#a78bfa;
+
+}
+
+.preview{
+height:220px;
+border-radius:25px;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+text-align:center;
+
+}
+
+.script button{
+background:none;
+border:1px solid #8b5cf6;
+color:#c4b5fd;
+padding:12px;
+border-radius:15px;
+
+}
+
+nav{
+position:fixed;
+bottom:15px;
+width:360px;
+height:70px;
+background:#151b2d;
+border-radius:25px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+
+}
+
+
+nav div{
+text-align:center;
+font-size:12px;
+}
+
+
+.active{
+color:#a78bfa;
+
+}
+
+
+/* PANEL */
+
+
+.panel{
+display:none;
+position:fixed;
+inset:0;
+background:#0008;
+align-items:flex-end;
+justify-content:center;
+
+}
+
+
+
+.panelBox{
+width:390px;
+background:#151b2d;
+padding:25px;
+border-radius:30px 30px 0 0;
+
+}
+
+.choice{
+padding:15px;
+background:#0d1220;
+border-radius:15px;
+margin:10px 0;
+
+}
+
+
+textarea{
+width:100%;
+height:120px;
+background:#090d18;
+color:white;
+border:0;
+padding:15px;
+border-radius:15px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<header>
 
 <div class="brand">
 
@@ -414,11 +704,24 @@ Produk Aman
 
 <div onclick="openPanel('voice')">
 
-🎙 Voice AI
 
 <span>
-Natural
+🎙 Voice AI
 </span>
+
+
+<b>
+TTS / Voice Note →
+</b>
+
+
+</div>
+
+
+<b>
+TTS / Voice Note →
+</b>
+
 
 </div>
 
@@ -581,50 +884,503 @@ Pilihan
 
 </h2>
 
+<div class="choice"
+onclick="selectVoice('tts')">
 
+✍️ Text To Speech AI
 
-<div class="choice">
-👩 Natural Voice
+<br>
+<small>
+AI membaca script dengan suara natural
+</small>
+
 </div>
 
 
+
+<div class="choice"
+onclick="selectVoice('note')">
+
+🎤 Voice Note Saya
+
+<br>
+<small>
+Ikuti ritme, nada & jeda suara asli
+</small>
+
+</div>
+
+
+<hr>
+
+
+<h3>
+🎛 Voice Effect
+</h3>
+
+
+
 <div class="choice">
+
 🐱 Kucing
+
+<br>
+
+<small>
+Lucu + artikulasi tetap jelas
+</small>
+
 </div>
 
 
 <div class="choice">
-🐭 Kartun
+
+👩 Wanita Natural
+
+<br>
+
+<small>
+Lembut & profesional
+</small>
+
 </div>
 
 
 <div class="choice">
-🔥 Viral
+
+👧 Anak Perempuan
+
+<br>
+
+<small>
+Ceria & ringan
+</small>
+
 </div>
 
 
 <div class="choice">
-📱 TikTok 9:16
+
+👨 Pria
+
+<br>
+
+<small>
+Tegas & percaya diri
+</small>
+
 </div>
 
 
 <div class="choice">
-⏱ 30 Detik
+
+🎭 Kartun
+
+<br>
+
+<small>
+Fun tapi tetap jelas
+</small>
+
 </div>
 
 
 <div class="choice">
-👤 Presenter AI
+
+✨ Enhance Voice
+
+<br>
+
+<small>
+Noise reduction + clarity
+</small>
+
 </div>
 
 
+<input 
+type="file"
+accept="audio/*"
+id="voiceFile"
+style="display:none">
+
+
+<button class="mainBtn"
+onclick="document.getElementById('voiceFile').click()">
+
+🎤 Upload Voice Note
+
+</button>
+
+<textarea>
+
+Contoh prompt:
+
+Gunakan voice note saya,
+pertahankan ritme suara,
+ubah karakter menjadi wanita natural,
+artikulasi harus jelas.
+
+</textarea>
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan Voice
+
+</button>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function openPanel(x){
+
+document
+.getElementById("panel")
+.style.display="flex";
+
+
+document
+.getElementById("title")
+.innerHTML=x;
+
+}
+
+function closePanel(){
+
+document
+.getElementById("panel")
+.style.display="none";
+
+}
+
+function scan(){
+
+alert(
+"Produk berhasil dianalisa\n\nFoto asli\nDeskripsi sesuai\nAman"
+);
+
+}
+
+
+function generate(){
+
+alert(
+"Video AI dibuat\n\nVoice Natural\nProduct Lock ON"
+);
+
+}
+
+ function selectVoice(type){
+
+
+if(type=="tts"){
+
+alert(
+"Text To Speech aktif\nAI membaca script"
+);
+
+}
+
+
+if(type=="note"){
+
+alert(
+"Voice Note aktif\nAI mengikuti ritme suara"
+);
+
+}
+
+
+} 
+
+
+if("serviceWorker" in navigator){
+
+navigator.serviceWorker.register(
+"service-worker.js"
+);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+
+
+<div class="card">
+
+
+<h3>
+🎥 Preview
+</h3>
+
+
+<div class="preview">
+
+▶
+
+<br>
+
+Video AI
+
+</div>
+
+
+</div>
+
+
+
+<div class="card script">
+
+
+<h3>
+🔥 Script AI
+</h3>
+
+
+<p>
+
+"Jangan skip dulu...
+produk ini menarik untuk dicoba."
+
+</p>
+
+
+<button onclick="openPanel('prompt')">
+
+✏️ Edit Prompt
+
+</button>
+
+
+</div>
+
+
+<button class="mainBtn"
+onclick="generate()">
+
+🎬 Generate Video AI
+
+</button>
+
+
+<nav>
+
+
+<div class="active">
+
+🏠<br>
+Home
+
+</div>
+
+
+<div>
+
+🔥<br>
+Viral
+
+</div>
+
+
+<div>
+
+🎬<br>
+Video
+
+</div>
+
+
+<div>
+
+⚙️<br>
+Setting
+
+</div>
+
+
+</nav>
+
+
+</div>
+
+
+<div class="panel" id="panel">
+
+
+<div class="panelBox">
+
+
+<h2 id="title">
+
+Pilihan
+
+</h2>
+
+<div class="choice"
+onclick="selectVoice('tts')">
+
+✍️ Text To Speech AI
+
+<br>
+<small>
+AI membaca script dengan suara natural
+</small>
+
+</div>
+
+
+
+<div class="choice"
+onclick="selectVoice('note')">
+
+🎤 Voice Note Saya
+
+<br>
+<small>
+Ikuti ritme, nada & jeda suara asli
+</small>
+
+</div>
+
+
+<hr>
+
+
+<h3>
+🎛 Voice Effect
+</h3>
+
+
+
+<div class="choice">
+
+🐱 Kucing
+
+<br>
+
+<small>
+Lucu + artikulasi tetap jelas
+</small>
+
+</div>
+
+
+<div class="choice">
+
+👩 Wanita Natural
+
+<br>
+
+<small>
+Lembut & profesional
+</small>
+
+</div>
+
+
+<div class="choice">
+
+👧 Anak Perempuan
+
+<br>
+
+<small>
+Ceria & ringan
+</small>
+
+</div>
+
+
+<div class="choice">
+
+👨 Pria
+
+<br>
+
+<small>
+Tegas & percaya diri
+</small>
+
+</div>
+
+
+<div class="choice">
+
+🎭 Kartun
+
+<br>
+
+<small>
+Fun tapi tetap jelas
+</small>
+
+</div>
+
+
+<div class="choice">
+
+✨ Enhance Voice
+
+<br>
+
+<small>
+Noise reduction + clarity
+</small>
+
+</div>
+
+
+<input 
+type="file"
+accept="audio/*"
+id="voiceFile"
+style="display:none">
+
+
+<button class="mainBtn"
+onclick="document.getElementById('voiceFile').click()">
+
+🎤 Upload Voice Note
+
+</button>
+
+<textarea>
+
+Contoh prompt:
+
+Gunakan voice note saya,
+pertahankan ritme suara,
+ubah karakter menjadi wanita natural,
+artikulasi harus jelas.
+
+</textarea>
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan Voice
+
+</button>
+  
 <textarea>
 
 Buat video viral,
 tetap gunakan foto asli produk.
 
 </textarea>
-
 
 
 <button class="mainBtn"
@@ -643,14 +1399,6 @@ Simpan
 
 
 <script>
-
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-}
-
 
 
 function openPanel(x){
