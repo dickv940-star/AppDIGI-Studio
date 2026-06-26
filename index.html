@@ -896,11 +896,9 @@ Simpan Prompt
 
 function openPanel(type){
 
-
 document
 .getElementById("panel")
 .style.display="flex";
-
 
 
 let items=[
@@ -915,8 +913,13 @@ let items=[
 
 items.forEach(i=>{
 
-document.getElementById(i)
-.style.display="none";
+let el=document.getElementById(i);
+
+if(el){
+
+el.style.display="none";
+
+}
 
 });
 
@@ -932,6 +935,7 @@ document.getElementById("title")
 }
 
 
+
 function closePanel(){
 
 document
@@ -942,28 +946,17 @@ document
 
 
 
+
 function selectVoice(type){
 
-
-if(type=="tts"){
-
 alert(
-"Text To Speech aktif\nAI membaca script"
+"Voice dipilih : "+type
 );
 
 }
 
 
-if(type=="note"){
 
-alert(
-"Voice Note aktif\nRitme suara dipertahankan"
-);
-
-}
-
-
-}
 
 function scan(){
 
@@ -974,7 +967,6 @@ document.getElementById("productLink").value;
 
 
 if(link.trim()==""){
-
 
 alert("Masukkan link produk dulu");
 
@@ -994,20 +986,7 @@ document.getElementById("status1")
 "🔍 Membaca link";
 
 
-document.getElementById("status2")
-.innerHTML =
-"⏳ Mengecek halaman";
-
-
-document.getElementById("status3")
-.innerHTML =
-"AI Product Check";
-
-
-
-
 setTimeout(function(){
-
 
 
 document.getElementById("productImage")
@@ -1019,7 +998,6 @@ document.getElementById("productImage")
 document.getElementById("productName")
 .innerHTML =
 "Produk Berhasil Dianalisa";
-
 
 
 document.getElementById("status1")
@@ -1037,26 +1015,23 @@ document.getElementById("status3")
 "✓ Foto produk terkunci";
 
 
-
 document.getElementById("checkLink")
 .innerHTML =
 "✓ Link menuju halaman produk";
 
 
-
-},1500);
+},1000);
 
 
 }
 
+
+
 function generate(){
 
-alert(
-"Generate Video AI\n\n"+
-"✓ Foto produk terkunci\n"+
-"✓ Voice natural\n"+
-"✓ Script siap"
 
+alert(
+"Generate Video AI siap"
 );
 
 
@@ -1064,6 +1039,7 @@ alert(
 
 
 if("serviceWorker" in navigator){
+
 navigator.serviceWorker.register(
 "service-worker.js"
 );
@@ -1072,7 +1048,6 @@ navigator.serviceWorker.register(
 
 
 </script>
-
 
 </body>
 
