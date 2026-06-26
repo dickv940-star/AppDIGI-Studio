@@ -48,8 +48,6 @@ padding-bottom:90px;
 
 }
 
-
-
 /* HEADER */
 
 
@@ -68,22 +66,35 @@ position:relative;
 
 
 .brand{
-
 display:flex;
 align-items:center;
-gap:12px;
+gap:8px;
+  
+}
+.brand div{
+line-height:1.1;
 
 }
 
+.brand h1{
+margin:0;
+font-size:22px;
 
+}
+
+.brand p{
+margin:3px 0 0;
+font-size:13px;
+opacity:.8;
+
+}
 .brand img{
-
-width:55px;
-height:55px;
-border-radius:18px;
+width:48px;
+height:48px;
+border-radius:14px;
+object-fit:cover;
 
 }
-
 
 h1{
 
@@ -118,11 +129,6 @@ border-radius:20px;
 
 }
 
-
-
-
-
-
 .card{
 
 margin:15px;
@@ -136,10 +142,6 @@ border-radius:24px;
 box-shadow:0 10px 30px #0004;
 
 }
-
-
-
-
 
 input{
 
@@ -158,15 +160,11 @@ color:white;
 }
 
 
-
-
 button{
 
 cursor:pointer;
 
 }
-
-
 
 .mainBtn{
 
@@ -204,149 +202,82 @@ align-items:center;
 
 }
 
-
 .product img{
-
 width:80px;
-
 height:80px;
-
 border-radius:20px;
 
 }
 
-
-
-
-
 .settings div{
-
 display:flex;
-
 justify-content:space-between;
-
 padding:16px 0;
-
 border-bottom:1px solid #ffffff15;
 
 }
 
-
-
 .settings span{
-
 color:#a78bfa;
 
 }
 
-
-
-
-
 .preview{
-
 height:220px;
-
 border-radius:25px;
-
 background:#000;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 font-size:22px;
-
 text-align:center;
 
 }
 
-
-
-
-
 .script button{
-
 background:none;
-
 border:1px solid #8b5cf6;
-
 color:#c4b5fd;
-
 padding:12px;
-
 border-radius:15px;
 
 }
 
-
-
-
-
 nav{
-
 position:fixed;
-
 bottom:15px;
-
 width:360px;
-
 height:70px;
-
 background:#151b2d;
-
 border-radius:25px;
-
 display:flex;
-
 justify-content:space-around;
-
 align-items:center;
 
 }
 
 
-
 nav div{
-
 text-align:center;
-
 font-size:12px;
-
 }
-
-
 
 
 .active{
-
 color:#a78bfa;
 
 }
-
-
-
-
-
 
 
 /* PANEL */
 
 
 .panel{
-
 display:none;
-
 position:fixed;
-
 inset:0;
-
 background:#0008;
-
 align-items:flex-end;
-
 justify-content:center;
 
 }
@@ -354,75 +285,47 @@ justify-content:center;
 
 
 .panelBox{
-
 width:390px;
-
 background:#151b2d;
-
 padding:25px;
-
 border-radius:30px 30px 0 0;
 
 }
 
-
-
 .choice{
-
 padding:15px;
-
 background:#0d1220;
-
 border-radius:15px;
-
 margin:10px 0;
 
 }
 
 
-
-
 textarea{
-
 width:100%;
-
 height:120px;
-
 background:#090d18;
-
 color:white;
-
 border:0;
-
 padding:15px;
-
 border-radius:15px;
 
 }
 
 
-
 </style>
-
 
 
 </head>
 
 
-
-
-
-
 <body>
-
 
 
 <div class="app">
 
 
-
 <header>
-
 
 <button class="darkBtn"
 onclick="toggleTheme()">
@@ -432,10 +335,9 @@ onclick="toggleTheme()">
 </button>
 
 
-
 <div class="brand">
 
-<img src="assets/logo.png">
+<img src="logo.png">
 
 
 <div>
@@ -458,12 +360,6 @@ AI Affiliate Video
 
 </header>
 
-
-
-
-
-
-
 <div class="card">
 
 
@@ -471,11 +367,7 @@ AI Affiliate Video
 🔗 Produk Affiliate
 </h3>
 
-
-
 <input placeholder="Tempel link produk">
-
-
 
 <button class="mainBtn"
 onclick="scan()">
@@ -484,21 +376,11 @@ onclick="scan()">
 
 </button>
 
-
 </div>
-
-
-
-
-
-
-
 
 <div class="card product">
 
-
 <img src="assets/logo.png">
-
 
 <div>
 
@@ -526,13 +408,6 @@ Produk Aman
 </div>
 
 
-
-
-
-
-
-
-
 <div class="card settings">
 
 
@@ -548,7 +423,6 @@ Natural
 </div>
 
 
-
 <div onclick="openPanel('style')">
 
 🎬 Style Video
@@ -559,9 +433,7 @@ Viral
 
 </div>
 
-
-
-
+  
 <div onclick="openPanel('size')">
 
 📱 Ukuran Video
@@ -573,8 +445,6 @@ Viral
 </div>
 
 
-
-
 <div onclick="openPanel('duration')">
 
 ⏱ Durasi
@@ -584,9 +454,6 @@ Viral
 </span>
 
 </div>
-
-
-
 
 
 <div onclick="openPanel('scene')">
@@ -601,12 +468,6 @@ Produk
 
 
 </div>
-
-
-
-
-
-
 
 
 
@@ -630,12 +491,6 @@ Video AI
 
 
 </div>
-
-
-
-
-
-
 
 
 
@@ -665,22 +520,12 @@ produk ini menarik untuk dicoba."
 </div>
 
 
-
-
-
-
-
 <button class="mainBtn"
 onclick="generate()">
 
 🎬 Generate Video AI
 
 </button>
-
-
-
-
-
 
 
 <nav>
@@ -721,15 +566,7 @@ Setting
 </nav>
 
 
-
-
 </div>
-
-
-
-
-
-
 
 
 <div class="panel" id="panel">
@@ -798,16 +635,10 @@ Simpan
 </button>
 
 
-
 </div>
 
 
 </div>
-
-
-
-
-
 
 
 
@@ -835,8 +666,6 @@ document
 
 }
 
-
-
 function closePanel(){
 
 document
@@ -845,8 +674,6 @@ document
 
 }
 
-
-
 function scan(){
 
 alert(
@@ -854,8 +681,6 @@ alert(
 );
 
 }
-
-
 
 
 function generate(){
@@ -868,7 +693,6 @@ alert(
 
 
 
-
 if("serviceWorker" in navigator){
 
 navigator.serviceWorker.register(
@@ -878,9 +702,7 @@ navigator.serviceWorker.register(
 }
 
 
-
 </script>
-
 
 
 </body>
