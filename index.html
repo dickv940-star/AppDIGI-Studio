@@ -15,361 +15,432 @@
 <meta name="theme-color" content="#6c5ce7">
 
 
-<link rel="icon" href="assets/logo.png">
-
-
-
 <style>
-
 
 *{
 box-sizing:border-box;
-font-family:Segoe UI,Arial;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 
 body{
 
 margin:0;
-background:#080b16;
+
+background:#050816;
+
 color:white;
-display:flex;
-justify-content:center;
 
 }
+
+
 
 .app{
-width:100%;
-max-width:1200px;
+
+max-width:430px;
+
 min-height:100vh;
+
+margin:auto;
+
 background:#0d1220;
-padding-bottom:100px;
-margin:20px auto;
-border-radius:35px;
-overflow:hidden;
-box-shadow:
-0 20px 60px #0008;
+
+padding-bottom:90px;
 
 }
 
-/* HEADER */
 
 
 header{
+
 padding:20px;
+
 background:
 linear-gradient(135deg,#6c5ce7,#0984e3);
+
 border-radius:0 0 30px 30px;
-position:relative;
 
 }
+
 
 .brand{
+
 display:flex;
+
+gap:10px;
+
 align-items:center;
-gap:8px;
-  
-}
-.brand div{
-line-height:1.1;
 
 }
+
+
+.brand img{
+
+width:52px;
+
+height:52px;
+
+border-radius:16px;
+
+}
+
 
 .brand h1{
+
 margin:0;
-font-size:22px;
+
+font-size:24px;
 
 }
+
+
+.brand span{
+
+color:#d8b4fe;
+
+}
+
 
 .brand p{
-margin:3px 0 0;
+
+margin:2px 0;
+
 font-size:13px;
-opacity:.8;
-
-}
-.brand img{
-width:48px;
-height:48px;
-border-radius:14px;
-object-fit:cover;
 
 }
 
-h1{
-margin:0;
-font-size:22px;
 
-}
-
-p{
-color:#cbd5e1;
-
-}
 
 .card{
+
 margin:15px;
+
 padding:18px;
+
 background:#151b2d;
-border-radius:24px;
-box-shadow:0 10px 30px #0004;
+
+border-radius:25px;
+
+box-shadow:0 10px 30px #0005;
 
 }
+
+
 
 input{
+
 width:100%;
+
 padding:15px;
-border:0;
+
 border-radius:15px;
+
+border:0;
+
 background:#090d18;
+
 color:white;
 
 }
-button{
-cursor:pointer;
 
-}
+
 
 .mainBtn{
+
 width:100%;
+
+height:52px;
+
 margin-top:15px;
-height:50px;
+
 border:0;
+
 border-radius:18px;
+
 background:
 linear-gradient(135deg,#8b5cf6,#2563eb);
+
 color:white;
+
 font-weight:bold;
-font-size:15px;
 
 }
 
+
+
 .product{
+
 display:flex;
+
 gap:15px;
+
 align-items:center;
 
 }
 
+
+
 .product img{
-width:80px;
-height:80px;
+
+width:90px;
+
+height:90px;
+
+object-fit:contain;
+
+background:#090d18;
+
+padding:15px;
+
 border-radius:20px;
 
 }
 
+
+
 .settings div{
+
 display:flex;
+
 justify-content:space-between;
+
 padding:16px 0;
+
 border-bottom:1px solid #ffffff15;
 
 }
 
+
+
 .settings span{
+
 color:#a78bfa;
 
 }
+
+
 
 .preview{
+
 height:220px;
+
 border-radius:25px;
+
 background:#000;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
-font-size:22px;
-text-align:center;
+
+font-size:24px;
 
 }
 
+
+
+.script{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
 .script button{
-background:none;
+
 border:1px solid #8b5cf6;
+
+background:none;
+
 color:#c4b5fd;
+
 padding:12px;
+
 border-radius:15px;
 
 }
 
+
 nav{
+
 position:fixed;
+
 bottom:15px;
+
 left:50%;
+
 transform:translateX(-50%);
-width:min(90%,380px);
+
+width:min(90%,390px);
+
 height:70px;
+
 background:#151b2d;
+
 border-radius:25px;
+
 display:flex;
+
 justify-content:space-around;
+
 align-items:center;
 
 }
+
+
 nav div{
-text-align:center;
+
 font-size:12px;
+
+text-align:center;
+
 }
 
+
+
 .active{
+
 color:#a78bfa;
 
 }
 
-/* PANEL */
+
+
 
 .panel{
+
 display:none;
+
 position:fixed;
+
 inset:0;
+
 background:#0008;
+
 align-items:flex-end;
-justify-content:center;
 
 }
+
+
+
 .panelBox{
-width:min(430px,100%);
+
+width:430px;
+
+max-width:100%;
+
 background:#151b2d;
 
+padding:25px;
+
+border-radius:30px 30px 0 0;
+
+max-height:90vh;
+
+overflow:auto;
+
 }
 
+
+
 .choice{
-padding:15px;
+
 background:#0d1220;
+
+padding:15px;
+
 border-radius:15px;
+
 margin:10px 0;
 
 }
 
+
+
 textarea{
+
 width:100%;
-height:120px;
+
+height:100px;
+
 background:#090d18;
+
 color:white;
+
 border:0;
-padding:15px;
+
 border-radius:15px;
 
-}
-@media(min-width:700px){
-body{
-background:#050816;
-display:flex;
-justify-content:center;
+padding:15px;
 
 }
+
+
+
+
+@media(min-width:800px){
+
 
 .app{
-width:430px;
 
-}
-.card{
-margin-left:18px;
-margin-right:18px;
+margin-top:30px;
 
-}
+border-radius:35px;
 
-nav{
-position:fixed;
-bottom:25px;
-left:50%;
-transform:translateX(-50%);
-width:400px;
+overflow:hidden;
 
-}
-.desktop{
-width:100%;
-display:flex;
-justify-content:center;
-
-}
-
-@media(min-width:900px){
-.app{
-display:grid;
-grid-template-columns:
-1fr 1fr 1fr;
-
-gap:20px;
-
-}
-  
-}
-  
-header{
-grid-column:1/4;
-
-}
-
-.settings{
-grid-column:1;
-
-}
-
-.preview{
-grid-column:2;
-height:350px;
-
-}
-
-.script{
-grid-column:3;
-
-}
-
-.mainBtn{
-grid-column:1/4;
+box-shadow:0 20px 70px #000;
 
 }
 
 
-nav{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-width:500px;
 
 }
 
-}
-  
 </style>
 
 </head>
 
-<body>
 
-<div class="desktop">
+<body>
 
 
 <div class="app">
-  
+
+
+
 <header>
 
 <div class="brand">
 
-<img src="logo.png">
+<img src="assets/logo.png">
 
 
 <div>
 
 <h1>
-AppDIGI Studio
+
+AppDIGI <span>Studio</span>
+
 </h1>
 
-
 <p>
-AI Affiliate Video
+Link → Video Affiliate AI
 </p>
 
-
 </div>
 
 
 </div>
-  
 
 </header>
+
+
 
 <div class="card">
 
@@ -378,27 +449,29 @@ AI Affiliate Video
 🔗 Produk Affiliate
 </h3>
 
-<input placeholder="Tempel link produk">
 
-<button class="mainBtn"
-onclick="scan()">
+<input placeholder="Tempel link produk affiliate">
+
+
+<button class="mainBtn" onclick="scan()">
 
 🔍 Analisa Produk
 
 </button>
 
+
 </div>
 
-<div class="card product" id="productResult">
 
 
-<img 
-id="productImage"
-src="logo-scan.png">
+<div class="card product">
+
+
+<img id="productImage"
+src="assets/logo-scan.png">
 
 
 <div>
-
 
 <b id="productName">
 
@@ -409,99 +482,86 @@ Belum dianalisa
 
 <p id="status1">
 
-🔍 Tempel link produk
+🔍 Menunggu link produk
 
 </p>
 
 
 <p id="status2">
 
-AI akan membaca produk
+✓ Foto asli
 
 </p>
+
 
 <p id="status3">
 
-Foto asli tidak diubah
+✓ Product Lock AI
 
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 <div class="card settings">
 
 <div onclick="openPanel('voice')">
 
-<span>
-🎙 Voice AI
-</span>
+<span>🎙 Voice AI</span>
 
-<b>
-TTS / Voice Note →
-</b>
+<b>TTS / Voice Note</b>
 
 </div>
 
-<b>
-TTS / Voice Note →
-</b>
-
-</div>
 
 <div onclick="openPanel('style')">
 
-🎬 Style Video
+<span>🎬 Style Video</span>
 
-<span>
-Viral
-</span>
+<b>🔥 Viral</b>
 
 </div>
 
-  
+
 <div onclick="openPanel('size')">
 
-📱 Ukuran Video
+<span>📱 Ukuran</span>
 
-<span>
-9:16
-</span>
+<b>9:16</b>
 
 </div>
 
 
 <div onclick="openPanel('duration')">
 
-⏱ Durasi
+<span>⏱ Durasi</span>
 
-<span>
-30 detik
-</span>
+<b>30 detik</b>
 
 </div>
+
 
 
 <div onclick="openPanel('scene')">
 
-👤 Tampilan
+<span>👤 Tampilan</span>
 
-<span>
-Produk
-</span>
+<b>Produk</b>
 
 </div>
 
-
 </div>
 
+<!-- PREVIEW -->
 
 <div class="card">
 
-
 <h3>
-🎥 Preview
+🎥 Preview Video
 </h3>
 
 
@@ -520,8 +580,13 @@ Video AI
 
 
 
+
+<!-- SCRIPT -->
+
 <div class="card script">
 
+
+<div>
 
 <h3>
 🔥 Script AI
@@ -531,9 +596,12 @@ Video AI
 <p>
 
 "Jangan skip dulu...
-produk ini menarik untuk dicoba."
+produk ini ternyata menarik untuk dicoba."
 
 </p>
+
+</div>
+
 
 
 <button onclick="openPanel('prompt')">
@@ -546,6 +614,7 @@ produk ini menarik untuk dicoba."
 </div>
 
 
+
 <button class="mainBtn"
 onclick="generate()">
 
@@ -554,12 +623,15 @@ onclick="generate()">
 </button>
 
 
+
+
 <nav>
 
 
 <div class="active">
 
-🏠<br>
+🏠
+<br>
 Home
 
 </div>
@@ -567,7 +639,8 @@ Home
 
 <div>
 
-🔥<br>
+🔥
+<br>
 Viral
 
 </div>
@@ -575,7 +648,8 @@ Viral
 
 <div>
 
-🎬<br>
+🎬
+<br>
 Video
 
 </div>
@@ -583,7 +657,8 @@ Video
 
 <div>
 
-⚙️<br>
+⚙️
+<br>
 Setting
 
 </div>
@@ -592,12 +667,17 @@ Setting
 </nav>
 
 
+
 </div>
 
 
+
+
+
+<!-- PANEL -->
+
 <div class="panel" id="panel">
 
- </div> 
 
 <div class="panelBox">
 
@@ -608,39 +688,61 @@ Pilihan
 
 </h2>
 
+
+
+<!-- VOICE -->
+
+
+<div id="voice">
+
+
 <div class="choice"
 onclick="selectVoice('tts')">
+
 
 ✍️ Text To Speech AI
 
 <br>
+
 <small>
-AI membaca script dengan suara natural
+
+Suara natural mengikuti script
+
 </small>
 
+
 </div>
+
 
 
 
 <div class="choice"
 onclick="selectVoice('note')">
 
+
 🎤 Voice Note Saya
 
+
 <br>
+
+
 <small>
-Ikuti ritme, nada & jeda suara asli
+
+Pertahankan ritme & nada asli
+
 </small>
+
 
 </div>
 
 
-<hr>
-
 
 <h3>
+
 🎛 Voice Effect
+
 </h3>
+
 
 
 
@@ -651,62 +753,47 @@ Ikuti ritme, nada & jeda suara asli
 <br>
 
 <small>
-Lucu + artikulasi tetap jelas
+
+Lucu tapi artikulasi jelas
+
 </small>
 
 </div>
+
+
 
 
 <div class="choice">
 
 👩 Wanita Natural
 
-<br>
-
-<small>
-Lembut & profesional
-</small>
-
 </div>
+
 
 
 <div class="choice">
 
 👧 Anak Perempuan
 
-<br>
-
-<small>
-Ceria & ringan
-</small>
-
 </div>
+
 
 
 <div class="choice">
 
 👨 Pria
 
-<br>
-
-<small>
-Tegas & percaya diri
-</small>
-
 </div>
+
 
 
 <div class="choice">
 
 🎭 Kartun
 
-<br>
-
-<small>
-Fun tapi tetap jelas
-</small>
-
 </div>
+
+
 
 
 <div class="choice">
@@ -716,10 +803,13 @@ Fun tapi tetap jelas
 <br>
 
 <small>
-Noise reduction + clarity
+
+Natural + jernih
+
 </small>
 
 </div>
+
 
 
 <input 
@@ -729,23 +819,36 @@ id="voiceFile"
 style="display:none">
 
 
+
 <button class="mainBtn"
 onclick="document.getElementById('voiceFile').click()">
 
+
 🎤 Upload Voice Note
+
 
 </button>
 
+
+
+
 <textarea>
 
-Contoh prompt:
+Gunakan voice note saya.
 
-Gunakan voice note saya,
-pertahankan ritme suara,
-ubah karakter menjadi wanita natural,
-artikulasi harus jelas.
+Pertahankan:
+- ritme
+- nada
+- jeda
+
+Efek suara:
+Natural
+
+Artikulasi jelas.
 
 </textarea>
+
+
 
 <button class="mainBtn"
 onclick="closePanel()">
@@ -754,28 +857,256 @@ Simpan Voice
 
 </button>
 
+
+</div>
+
+
+
+<!-- STYLE -->
+
+<div id="style" style="display:none">
+
+
+<div class="choice">
+
+🔥 Viral Storytelling
+
+</div>
+
+
+<div class="choice">
+
+🛒 Review Produk
+
+</div>
+
+
+<div class="choice">
+
+🎬 Cinematic
+
+</div>
+
+
+<div class="choice">
+
+📢 Hard Selling
+
+</div>
+
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan
+
+</button>
+
+
+</div>
+
+
+
+
+<!-- SIZE -->
+
+<div id="size" style="display:none">
+
+
+<div class="choice">
+
+📱 TikTok 9:16
+
+</div>
+
+
+<div class="choice">
+
+▶ YouTube 16:9
+
+</div>
+
+
+<div class="choice">
+
+🟦 Instagram 1:1
+
+</div>
+
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan
+
+</button>
+
+
+</div>
+
+
+
+<!-- DURATION -->
+
+<div id="duration" style="display:none">
+
+
+<div class="choice">
+
+⏱ 10 Detik
+
+</div>
+
+
+<div class="choice">
+
+⏱ 30 Detik
+
+</div>
+
+
+<div class="choice">
+
+⏱ 1 Menit
+
+</div>
+
+
+<div class="choice">
+
+⌛ Custom
+
+</div>
+
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan
+
+</button>
+
+
+</div>
+
+
+<!-- SCENE -->
+
+
+<div id="scene" style="display:none">
+
+
+<div class="choice">
+
+📦 Produk Saja
+
+</div>
+
+
+<div class="choice">
+
+👤 Presenter AI
+
+</div>
+
+
+<div class="choice">
+
+👐 Tangan Memegang Produk
+
+</div>
+
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan
+
+</button>
+
+
+</div>
+
+
+
+<!-- PROMPT -->
+
+
+<div id="prompt" style="display:none">
+
+
+<textarea>
+
+Buat video affiliate viral.
+
+Jangan ubah bentuk produk.
+
+Gunakan foto asli.
+
+Voice natural.
+
+</textarea>
+
+
+
+<button class="mainBtn"
+onclick="closePanel()">
+
+Simpan Prompt
+
+</button>
+
+
 </div>
 
 
 </div>
+
+</div>
+
 
 
 
 <script>
 
 
-function openPanel(x){
+function openPanel(type){
+
 
 document
 .getElementById("panel")
 .style.display="flex";
 
 
-document
-.getElementById("title")
-.innerHTML=x;
+
+let items=[
+"voice",
+"style",
+"size",
+"duration",
+"scene",
+"prompt"
+];
+
+
+items.forEach(i=>{
+
+document.getElementById(i)
+.style.display="none";
+
+});
+
+
+document.getElementById(type)
+.style.display="block";
+
+
+document.getElementById("title")
+.innerHTML=type;
+
 
 }
+
 
 function closePanel(){
 
@@ -785,24 +1116,9 @@ document
 
 }
 
-function scan(){
-
-alert(
-"Produk berhasil dianalisa\n\nFoto asli\nDeskripsi sesuai\nAman"
-);
-
-}
 
 
-function generate(){
-
-alert(
-"Video AI dibuat\n\nVoice Natural\nProduct Lock ON"
-);
-
-}
-
- function selectVoice(type){
+function selectVoice(type){
 
 
 if(type=="tts"){
@@ -817,362 +1133,71 @@ alert(
 if(type=="note"){
 
 alert(
-"Voice Note aktif\nAI mengikuti ritme suara"
+"Voice Note aktif\nRitme suara dipertahankan"
 );
 
 }
 
 
-} 
-
-
-if("serviceWorker" in navigator){
-
-navigator.serviceWorker.register(
-"service-worker.js"
-);
-
 }
 
 
-</script>
 
-
-</body>
-
-</html>
-
-
-<div class="card">
-
-
-<h3>
-🎥 Preview
-</h3>
-
-
-<div class="preview">
-
-▶
-
-<br>
-
-Video AI
-
-</div>
-
-
-</div>
-
-
-
-<div class="card script">
-
-
-<h3>
-🔥 Script AI
-</h3>
-
-
-<p>
-
-"Jangan skip dulu...
-produk ini menarik untuk dicoba."
-
-</p>
-
-
-<button onclick="openPanel('prompt')">
-
-✏️ Edit Prompt
-
-</button>
-
-
-</div>
-
-
-<button class="mainBtn"
-onclick="generate()">
-
-🎬 Generate Video AI
-
-</button>
-
-
-<nav>
-
-
-<div class="active">
-
-🏠<br>
-Home
-
-</div>
-
-
-<div>
-
-🔥<br>
-Viral
-
-</div>
-
-
-<div>
-
-🎬<br>
-Video
-
-</div>
-
-
-<div>
-
-⚙️<br>
-Setting
-
-</div>
-
-
-</nav>
-
-
-</div>
-
-
-<div class="panel" id="panel">
-
-
-<div class="panelBox">
-
-
-<h2 id="title">
-
-Pilihan
-
-</h2>
-
-<div class="choice"
-onclick="selectVoice('tts')">
-
-✍️ Text To Speech AI
-
-<br>
-<small>
-AI membaca script dengan suara natural
-</small>
-
-</div>
-
-
-
-<div class="choice"
-onclick="selectVoice('note')">
-
-🎤 Voice Note Saya
-
-<br>
-<small>
-Ikuti ritme, nada & jeda suara asli
-</small>
-
-</div>
-
-
-<hr>
-
-
-<h3>
-🎛 Voice Effect
-</h3>
-
-
-
-<div class="choice">
-
-🐱 Kucing
-
-<br>
-
-<small>
-Lucu + artikulasi tetap jelas
-</small>
-
-</div>
-
-
-<div class="choice">
-
-👩 Wanita Natural
-
-<br>
-
-<small>
-Lembut & profesional
-</small>
-
-</div>
-
-
-<div class="choice">
-
-👧 Anak Perempuan
-
-<br>
-
-<small>
-Ceria & ringan
-</small>
-
-</div>
-
-
-<div class="choice">
-
-👨 Pria
-
-<br>
-
-<small>
-Tegas & percaya diri
-</small>
-
-</div>
-
-
-<div class="choice">
-
-🎭 Kartun
-
-<br>
-
-<small>
-Fun tapi tetap jelas
-</small>
-
-</div>
-
-
-<div class="choice">
-
-✨ Enhance Voice
-
-<br>
-
-<small>
-Noise reduction + clarity
-</small>
-
-</div>
-
-
-<input 
-type="file"
-accept="audio/*"
-id="voiceFile"
-style="display:none">
-
-
-<button class="mainBtn"
-onclick="document.getElementById('voiceFile').click()">
-
-🎤 Upload Voice Note
-
-</button>
-
-<textarea>
-
-Contoh prompt:
-
-Gunakan voice note saya,
-pertahankan ritme suara,
-ubah karakter menjadi wanita natural,
-artikulasi harus jelas.
-
-</textarea>
-
-<button class="mainBtn"
-onclick="closePanel()">
-
-Simpan Voice
-
-</button>
-  
-<textarea>
-
-Buat video viral,
-tetap gunakan foto asli produk.
-
-</textarea>
-
-
-<button class="mainBtn"
-onclick="closePanel()">
-
-Simpan
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-<script>
-
-
-function openPanel(x){
-
-document
-.getElementById("panel")
-.style.display="flex";
-
-
-document
-.getElementById("title")
-.innerHTML=x;
-
-}
-
-function closePanel(){
-
-document
-.getElementById("panel")
-.style.display="none";
-
-}
 
 function scan(){
 
-document.getElementById("productImage").src =
-"logo-scan.png";
 
-document.getElementById("productName").innerHTML =
-"Produk Affiliate Ditemukan";
+document
+.getElementById("productImage")
+.src="assets/logo.png";
 
-document.getElementById("status1").innerHTML =
+
+
+document
+.getElementById("productName")
+.innerHTML=
+"Produk Berhasil Dianalisa";
+
+
+
+document
+.getElementById("status1")
+.innerHTML=
 "✓ Foto produk asli";
 
-document.getElementById("status2").innerHTML =
-"✓ Deskripsi sesuai link";
 
-document.getElementById("status3").innerHTML =
-"✓ Product Lock AI aktif";
+
+document
+.getElementById("status2")
+.innerHTML=
+"✓ Deskripsi sesuai";
+
+
+document
+.getElementById("status3")
+.innerHTML=
+"✓ Bentuk tidak diubah AI";
+
 
 }
 
 function generate(){
 
+
 alert(
-"Video AI dibuat\n\nVoice Natural\nProduct Lock ON"
+
+"Generate Video AI\n\n"+
+
+"✓ Foto produk terkunci\n"+
+
+"✓ Voice natural\n"+
+
+"✓ Script siap"
+
 );
 
-}
 
+}
 
 
 if("serviceWorker" in navigator){
@@ -1190,3 +1215,4 @@ navigator.serviceWorker.register(
 </body>
 
 </html>
+  
