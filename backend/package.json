@@ -1,0 +1,13 @@
+{
+"name":"appdigi-api",
+"version":"1.0.0",
+"scripts":{
+"start":"node server.js"
+},
+"dependencies":{
+"express":"latest",
+"cors":"latest",
+"axios":"latest",
+"cheerio":"latest"
+}
+}
