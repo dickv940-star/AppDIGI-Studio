@@ -41,10 +41,12 @@ justify-content:center;
 
 .app{
 
-width:390px;
+width:100%;
+max-width:430px;
 min-height:100vh;
 background:#0d1220;
-padding-bottom:90px;
+padding-bottom:100px;
+margin:auto;
 
 }
 
@@ -194,7 +196,9 @@ border-radius:15px;
 nav{
 position:fixed;
 bottom:15px;
-width:360px;
+left:50%;
+transform:translateX(-50%);
+width:min(90%,380px);
 height:70px;
 background:#151b2d;
 border-radius:25px;
@@ -203,13 +207,10 @@ justify-content:space-around;
 align-items:center;
 
 }
-
-
 nav div{
 text-align:center;
 font-size:12px;
 }
-
 
 .active{
 color:#a78bfa;
@@ -229,14 +230,9 @@ align-items:flex-end;
 justify-content:center;
 
 }
-
-
-
 .panelBox{
-width:390px;
+width:min(430px,100%);
 background:#151b2d;
-padding:25px;
-border-radius:30px 30px 0 0;
 
 }
 
@@ -259,7 +255,44 @@ padding:15px;
 border-radius:15px;
 
 }
+@media(min-width:700px){
 
+
+body{
+
+background:#050816;
+
+}
+
+
+
+.app{
+
+margin-top:30px;
+
+border-radius:35px;
+
+overflow:hidden;
+
+box-shadow:
+0 20px 60px #0008;
+
+}
+  
+header{
+border-radius:0 0 30px 30px;
+
+}
+
+.card{
+margin:18px 25px;
+
+}
+
+.preview{
+height:260px;
+  
+}
 
 </style>
 
