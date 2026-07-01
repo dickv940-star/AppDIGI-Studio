@@ -970,8 +970,89 @@ document
 
 }
 
+async function runAnalysis(url) {
 
+    const scanner = new Scanner();
 
+    const stepsEl = document.getElementById("analysisSteps");
+
+    function update(text) {
+        stepsEl.innerHTML += `<div>${text}</div>`;
+    }
+
+    stepsEl.innerHTML = "";
+
+    // STEP 1
+    update("🔍 Memvalidasi URL...");
+    await delay(600);
+
+    const result = scanner.validateProductUrl(url);
+
+    if (!result.marketplace) {
+        update("❌ URL tidak valid atau tidak didukung");
+        return;
+    }
+
+    update("✔ URL valid");
+    await delay(500);
+
+    // STEP 2
+    update("🔍 Mendeteksi Marketplace...");
+    await delay(600);
+
+    update(`✔ ${result.marketplace}`);
+    await delay(500);
+
+    // STEP 3
+    update("🔍 Memverifikasi Produk...");
+    await delay(700);
+
+    if (result.valid) {
+        update("✔ Produk ditemukan");
+    } else {
+        update("⚠ URL bukan halaman produk");
+    }
+
+    await delay(500);
+
+    // FINAL
+    update(`🟢 Confidence ${result.confidence}%`);
+
+    if (result.confidence < 80) {
+        update("❌ AI diblokir: confidence terlalu rendah");
+    } else {
+        update("🚀 Siap dianalisa AI");
+    }
+}
+function renderResult(result) {
+
+    return `
+        <div class="status-card">
+
+            <h3>STATUS ANALISA</h3>
+
+            <p>Marketplace : ${result.marketplace}</p>
+
+            <p>URL : ${result.marketplace ? "VALID" : "INVALID"}</p>
+
+            <p>Produk : ${result.valid ? "VALID" : "INVALID"}</p>
+
+            <p>Confidence : ${result.confidence}%</p>
+
+            <hr/>
+
+            <p><b>Status :</b> ${
+                result.confidence >= 80
+                    ? "Siap dianalisa AI"
+                    : "URL harus diperbaiki"
+            }</p>
+
+        </div>
+    `;
+}ok 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function selectVoice(type){
 
