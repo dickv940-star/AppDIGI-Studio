@@ -1077,65 +1077,6 @@ alert(
 
 }
 
-function scan(){
-
-    const link = document.getElementById("productLink").value.trim();
-
-    if(link===""){
-        alert("Masukkan link produk dulu");
-        return;
-    }
-
-    const result = MarketplaceScanner.detect(link);
-
-    if(!result.valid){
-
-        document.getElementById("productName").innerHTML="Marketplace tidak didukung";
-
-        document.getElementById("productInfo").innerHTML="❌ Link tidak dikenali";
-
-        document.getElementById("status1").innerHTML="❌ Scanner gagal";
-
-        document.getElementById("status2").innerHTML="-";
-
-        document.getElementById("status3").innerHTML="-";
-
-        document.getElementById("checkLink").innerHTML="❌ URL bukan marketplace";
-
-        return;
-
-    }
-
-    document.getElementById("productName").innerHTML="Menganalisa...";
-
-    document.getElementById("productInfo").innerHTML=
-        "Marketplace : "+result.marketplace;
-
-    document.getElementById("status1").innerHTML=
-        "✅ "+result.marketplace+" terdeteksi";
-
-    document.getElementById("status2").innerHTML=
-        "🌐 Domain : "+result.domain;
-
-    document.getElementById("status3").innerHTML=
-        "⏳ Menunggu analisa produk";
-
-    document.getElementById("checkLink").innerHTML=
-        "✅ URL valid";
-
-    setTimeout(function(){
-
-        document.getElementById("productName").innerHTML=result.marketplace;
-
-        document.getElementById("productPrice").innerHTML="-";
-
-        document.getElementById("productImage").src="logo.png";
-
-    },800);
-
-}
-
-
 function generate(){
 
 
