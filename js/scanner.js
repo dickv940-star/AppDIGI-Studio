@@ -99,7 +99,72 @@ const MarketplaceScanner = {
             };
 
         }
+validateProductUrl(url) {
 
+    const result = this.detect(url);
+
+    if (!result.valid) {
+        return {
+            valid: false,
+            confidence: 0,
+            reason: "Marketplace tidak didukung"
+        };
+    }
+
+    let confidence = 40;
+
+    const lower = url.toLowerCase();
+
+    switch (result.marketplace) {
+
+        case "Shopee":
+
+            if (
+                lower.includes("-i.") ||
+                lower.includes("/product/")
+            ) confidence += 60;
+
+            break;
+
+        case "Tokopedia":
+
+            if (
+                lower.includes("/p/")
+            ) confidence += 60;
+
+            break;
+
+        case "TikTok Shop":
+
+            if (
+                lower.includes("/product/")
+            ) confidence += 60;
+
+            break;
+
+        case "Lazada":
+
+            if (
+                lower.includes(".html")
+            ) confidence += 60;
+
+            break;
+
+    }
+
+    return {
+
+        valid: confidence >= 80,
+
+        confidence,
+
+        marketplace: result.marketplace,
+
+        domain: result.domain
+
+    };
+
+}
     }
 
 };
