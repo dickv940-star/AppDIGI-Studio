@@ -308,10 +308,6 @@ Link → Video Affiliate AI
 
 <div class="card">
 
-<button class="mainBtn" onclick="scan()">
-🔍 Analisa Produk
-</button>
-
 </div>
 
 <div class="card product">
@@ -930,109 +926,35 @@ Simpan Prompt
 
 function openPanel(type){
 
-document
-.getElementById("panel")
-.style.display="flex";
+    document.getElementById("panel").style.display = "flex";
 
+    let items = [
+        "voice",
+        "style",
+        "size",
+        "duration",
+        "scene",
+        "prompt"
+    ];
 
-let items=[
-"voice",
-"style",
-"size",
-"duration",
-"scene",
-"prompt"
-];
+    items.forEach(i => {
+        let el = document.getElementById(i);
+        if(el) el.style.display = "none";
+    });
 
-
-items.forEach(i=>{
-
-let el=document.getElementById(i);
-
-if(el){
-
-el.style.display="none";
-
+    document.getElementById(type).style.display = "block";
+    document.getElementById("title").innerHTML = type;
 }
-
-});
-
-
-document.getElementById(type)
-.style.display="block";
-
-
-document.getElementById("title")
-.innerHTML=type;
-
-
-}
-
-
 
 function closePanel(){
-
-document
-.getElementById("panel")
-.style.display="none";
-
+    document.getElementById("panel").style.display = "none";
 }
 
-async function runAnalysis(url) {
-
-    const scanner = new Scanner();
-
-    const stepsEl = document.getElementById("analysisSteps");
-
-    function update(text) {
-        stepsEl.innerHTML += `<div>${text}</div>`;
-    }
-
-    stepsEl.innerHTML = "";
-
-    // STEP 1
-    update("🔍 Memvalidasi URL...");
-    await delay(600);
-
-    const result = scanner.validateProductUrl(url);
-
-    if (!result.marketplace) {
-        update("❌ URL tidak valid atau tidak didukung");
-        return;
-    }
-
-    update("✔ URL valid");
-    await delay(500);
-
-    // STEP 2
-    update("🔍 Mendeteksi Marketplace...");
-    await delay(600);
-
-    update(`✔ ${result.marketplace}`);
-    await delay(500);
-
-    // STEP 3
-    update("🔍 Memverifikasi Produk...");
-    await delay(700);
-
-    if (result.valid) {
-        update("✔ Produk ditemukan");
-    } else {
-        update("⚠ URL bukan halaman produk");
-    }
-
-    await delay(500);
-
-    // FINAL
-    update(`🟢 Confidence ${result.confidence}%`);
-
-    if (result.confidence < 80) {
-        update("❌ AI diblokir: confidence terlalu rendah");
-    } else {
-        update("🚀 Siap dianalisa AI");
-    }
+function delay(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
-function renderResult(result) {
+
+function renderResult(result){
 
     return `
         <div class="status-card">
@@ -1041,13 +963,13 @@ function renderResult(result) {
 
             <p>Marketplace : ${result.marketplace}</p>
 
-            <p>URL : ${result.marketplace ? "VALID" : "INVALID"}</p>
+            <p>URL : ${result.valid ? "VALID" : "INVALID"}</p>
 
             <p>Produk : ${result.valid ? "VALID" : "INVALID"}</p>
 
             <p>Confidence : ${result.confidence}%</p>
 
-            <hr/>
+            <hr>
 
             <p><b>Status :</b> ${
                 result.confidence >= 80
@@ -1057,42 +979,90 @@ function renderResult(result) {
 
         </div>
     `;
-}ok 
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function runAnalysis(url) {
+
+    const scanner = new Scanner();
+
+    const stepsEl = document.getElementById("analysisSteps");
+    const resultEl = document.getElementById("resultCard");
+
+    function update(text){
+        stepsEl.innerHTML += `<div>${text}</div>`;
+    }
+
+    stepsEl.innerHTML = "";
+    resultEl.innerHTML = "";
+
+    // STEP 1
+    update("🔍 Memvalidasi URL...");
+    await delay(500);
+
+    const result = scanner.validateProductUrl(url);
+
+    if(!result.marketplace){
+        update("❌ URL tidak didukung");
+        return;
+    }
+
+    update("✔ URL valid");
+    await delay(400);
+
+    // STEP 2
+    update("🔍 Mendeteksi Marketplace...");
+    await delay(500);
+
+    update("✔ " + result.marketplace);
+    await delay(400);
+
+    // STEP 3
+    update("🔍 Memverifikasi Produk...");
+    await delay(600);
+
+    update(result.valid ? "✔ Produk ditemukan" : "⚠ Bukan halaman produk");
+
+    await delay(400);
+
+    // FINAL
+    update("🟢 Confidence " + result.confidence + "%");
+
+    if(result.confidence < 80){
+        update("❌ AI diblokir (confidence rendah)");
+    } else {
+        update("🚀 Siap dianalisa AI");
+    }
+
+    // SHOW RESULT CARD
+    resultEl.innerHTML = renderResult(result);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("scanBtn").addEventListener("click", () => {
+
+        const url = document.getElementById("urlInput").value.trim();
+
+        if(url === ""){
+            alert("Masukkan URL dulu");
+            return;
+        }
+
+        runAnalysis(url);
+    });
+
+});
+
 function selectVoice(type){
-
-alert(
-"Voice dipilih : "+type
-);
-
+    alert("Voice dipilih : " + type);
 }
 
 function generate(){
-
-
-alert(
-"Generate Video AI siap"
-);
-
-
+    alert("Generate Video AI siap");
 }
-
 
 if("serviceWorker" in navigator){
-
-navigator.serviceWorker.register(
-"service-worker.js"
-);
-
+    navigator.serviceWorker.register("service-worker.js");
 }
 
-
 </script>
-
-</body>
-
-</html>
-  
