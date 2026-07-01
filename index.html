@@ -915,9 +915,9 @@ Simpan Prompt
 
 </div>
 
+<script src="js/scanner.js"></script>
 
 <script>
-
 
 function openPanel(type){
 
@@ -980,76 +980,63 @@ alert(
 
 }
 
-
-
-
 function scan(){
 
+    const link = document.getElementById("productLink").value.trim();
 
-let link =
-document.getElementById("productLink").value;
+    if(link===""){
+        alert("Masukkan link produk dulu");
+        return;
+    }
 
+    const result = MarketplaceScanner.detect(link);
 
+    if(!result.valid){
 
-if(link.trim()==""){
+        document.getElementById("productName").innerHTML="Marketplace tidak didukung";
 
-alert("Masukkan link produk dulu");
+        document.getElementById("productInfo").innerHTML="❌ Link tidak dikenali";
 
-return;
+        document.getElementById("status1").innerHTML="❌ Scanner gagal";
 
-}
+        document.getElementById("status2").innerHTML="-";
 
+        document.getElementById("status3").innerHTML="-";
 
+        document.getElementById("checkLink").innerHTML="❌ URL bukan marketplace";
 
-document.getElementById("productName")
-.innerHTML =
-"Menganalisa Produk...";
+        return;
 
+    }
 
-document.getElementById("status1")
-.innerHTML =
-"🔍 Membaca link";
+    document.getElementById("productName").innerHTML="Menganalisa...";
 
+    document.getElementById("productInfo").innerHTML=
+        "Marketplace : "+result.marketplace;
 
-setTimeout(function(){
+    document.getElementById("status1").innerHTML=
+        "✅ "+result.marketplace+" terdeteksi";
 
+    document.getElementById("status2").innerHTML=
+        "🌐 Domain : "+result.domain;
 
-document.getElementById("productImage")
-.src =
-"logo.png";
+    document.getElementById("status3").innerHTML=
+        "⏳ Menunggu analisa produk";
 
+    document.getElementById("checkLink").innerHTML=
+        "✅ URL valid";
 
+    setTimeout(function(){
 
-document.getElementById("productName")
-.innerHTML =
-"Produk Berhasil Dianalisa";
+        document.getElementById("productName").innerHTML=result.marketplace;
 
+        document.getElementById("productPrice").innerHTML="-";
 
-document.getElementById("status1")
-.innerHTML =
-"✓ Link produk ditemukan";
+        document.getElementById("productImage").src="logo.png";
 
-
-document.getElementById("status2")
-.innerHTML =
-"✓ Deskripsi cocok";
-
-
-document.getElementById("status3")
-.innerHTML =
-"✓ Foto produk terkunci";
-
-
-document.getElementById("checkLink")
-.innerHTML =
-"✓ Link menuju halaman produk";
-
-
-},1000);
-
+    },800);
 
 }
-
 
 
 function generate(){
