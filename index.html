@@ -924,31 +924,7 @@ Simpan Prompt
 
 <script>
 
-function openPanel(type){
 
-    document.getElementById("panel").style.display = "flex";
-
-    let items = [
-        "voice",
-        "style",
-        "size",
-        "duration",
-        "scene",
-        "prompt"
-    ];
-
-    items.forEach(i => {
-        let el = document.getElementById(i);
-        if(el) el.style.display = "none";
-    });
-
-    document.getElementById(type).style.display = "block";
-    document.getElementById("title").innerHTML = type;
-}
-
-function closePanel(){
-    document.getElementById("panel").style.display = "none";
-}
 
 function delay(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -1068,10 +1044,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
-function selectVoice(type){
-    alert("Voice dipilih : " + type);
-}
 
 function generate(){
     alert("Generate Video AI siap");
