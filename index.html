@@ -290,7 +290,77 @@ background:#141d33;
 border-radius:10px;
 
 }
+.analysis-content{
 
+flex:1;
+
+}
+
+.analysis-steps{
+
+margin:15px 0;
+
+max-height:160px;
+
+overflow-y:auto;
+
+}
+
+.analysis-item{
+
+padding:12px;
+
+margin-bottom:8px;
+
+background:#10172a;
+
+border-left:4px solid #6c5ce7;
+
+border-radius:10px;
+
+font-size:14px;
+
+}
+
+.status-card{
+
+margin-top:15px;
+
+padding:16px;
+
+background:#10172a;
+
+border-radius:16px;
+
+border:1px solid #2c3655;
+
+}
+
+.status-card h3{
+
+margin-top:0;
+
+color:#8b5cf6;
+
+}
+
+.status-card p{
+
+margin:8px 0;
+
+line-height:1.6;
+
+}
+
+.status-card hr{
+
+border:none;
+
+border-top:1px solid #2c3655;
+
+margin:15px 0;
+
+}
 }
 
 </style>
@@ -344,24 +414,44 @@ Link → Video Affiliate AI
 </div>
 
 </header>
-
-<div class="card">
-
-</div>
-
-<div class="card product">
-
-<img 
+<img
 id="productImage"
 src="logo-scan.png">
 
+<div class="analysis-content">
 
-<div>
+    <h3 id="productName">
+        Belum Dianalisa
+    </h3>
 
+    <p id="productMarketplace">
+        Marketplace belum terdeteksi
+    </p>
 
-<h3 id="productName">
+    <div id="analysisSteps" class="analysis-steps">
 
-Belum dianalisa
+        <div class="analysis-item">
+            🔍 Menunggu link produk...
+        </div>
+
+    </div>
+
+    <div id="resultCard">
+
+        <div class="status-card">
+
+            <h3>STATUS ANALISA</h3>
+
+            <p>
+                Tempel URL produk lalu tekan
+                <b>Analisa Produk</b>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 </h3>
 
