@@ -984,7 +984,9 @@ function renderResult(result){
 async function runAnalysis(url) {
 
     const scanner = new Scanner();
-
+    const aiEngine = new AIEngine();
+    const ai = scanner.aiBrainAnalysis(product, result);
+    const aiScript = await aiEngine.analyze(product, result, ai);
     const stepsEl = document.getElementById("analysisSteps");
     const resultEl = document.getElementById("resultCard");
 
@@ -1035,6 +1037,20 @@ async function runAnalysis(url) {
 
     // SHOW RESULT CARD
     resultEl.innerHTML = renderResult(result);
+  
+  <h4>🧠 AI CONTENT</h4>
+
+<p><b>Hook:</b> ${aiScript.hook}</p>
+
+<p><b>Insight:</b> ${aiScript.insight}</p>
+
+<p><b>CTA:</b> ${aiScript.cta}</p>
+
+<hr>
+
+<h4>📜 Full Script</h4>
+<pre>${aiScript.fullScript}</pre>
+  
 }
 
 document.addEventListener("DOMContentLoaded", () => {
